@@ -6,6 +6,11 @@
 ;; Let's start emacs-server, pretty useful when committing files from VCS
 (server-start)
 
+;; This is obviously mandatory
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/auto-complete/")
+(add-to-list 'load-path "~/.emacs.d/auto-complete-clang/")
+
 ;; Configure web brower
 (setq browse-url-browser-function (quote browse-url-generic))
 (setq browse-url-generic-program "firefox3")
