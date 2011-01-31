@@ -3,21 +3,28 @@
 ;; Entry config file (`emacs-config.el')
 ;; The is the entry point for emacs configuration.
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Server configuration
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Let's start emacs-server, pretty useful when committing files from VCS
 (server-start)
 
+;; ;; I actually don't like either pressing C-x k and not selecting a buffer
+;; (add-hook 'server-switch-hook
+;;   (lambda ()
+;;     (when (current-local-map)
+;;       (use-local-map (copy-keymap (current-local-map))))
+;; 	(when server-buffer-clients
+;; 	  (local-set-key (kbd "C-x k") 'server-edit))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Load path
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This is obviously mandatory
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/auto-complete/")
 (add-to-list 'load-path "~/.emacs.d/auto-complete-clang/")
-
-;; Configure web brower
-(setq browse-url-browser-function (quote browse-url-generic))
-(setq browse-url-generic-program "firefox3")
-
-;; Allow disabled functions
-(put 'narrow-to-region 'disabled nil) ;; narrow/widen region
-(put 'upcase-region 'disabled nil) ;; upcase region
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -77,7 +84,16 @@
 ;; Misceallenous
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'after-save-hook
-  (executable-make-buffer-file-executable-if-script-p))
+  'executable-make-buffer-file-executable-if-script-p)
+
+;; Configure web brower
+(setq browse-url-browser-function (quote browse-url-generic))
+(setq browse-url-generic-program "firefox3")
+
+;; Allow disabled functions
+(put 'narrow-to-region 'disabled nil) ;; narrow/widen region
+(put 'upcase-region 'disabled nil) ;; upcase region
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Amadeus Specifics
