@@ -38,11 +38,12 @@
 (setq default-tab-width 4)
 (show-paren-mode 1)
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 (iswitchb-mode t)
 (global-hi-lock-mode 1)
 (column-number-mode 1)
 (setq normal-erase-is-backspace 0)
-(setq scroll-bar-mode (quote right))
+(set-scroll-bar-mode nil)
 
 ;; Colors for compilation buffer
 (require 'ansi-color)
