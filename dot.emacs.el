@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -*- mode: emacs-lisp; coding: utf-8-emacs -*-
 ;;
 ;; Emacs config file (dot.emacs.el)
 ;; This file is to be loaded automatically by emacs and should then be

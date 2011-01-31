@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -*- mode: emacs-lisp; coding: utf-8-emacs -*-
 
 ;; Entry config file (`emacs-config.el')
 ;; The is the entry point for emacs configuration.
