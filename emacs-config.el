@@ -67,3 +67,9 @@
     '(lambda ()
 	   (define-key eshell-mode-map [up] 'previous-line)
 	   (define-key eshell-mode-map [down] 'next-line)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Amadeus Specifics
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (getenv "AMADEUS")
+  (load-file "~/.emacs.d/amadeus.el"))
