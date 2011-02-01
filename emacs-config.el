@@ -42,7 +42,7 @@
 (column-number-mode 1)
 (setq normal-erase-is-backspace 0)
 (ido-mode t)
-(global-set-key (kbd "C-c C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (if window-system
   (progn
