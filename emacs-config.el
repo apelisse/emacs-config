@@ -82,6 +82,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'eshell-mode-hook
     '(lambda ()
+	   (setenv "GIT_PAGER" "")			; Let's not use the default pager in eshell
 	   (define-key eshell-mode-map [up] 'previous-line)
 	   (define-key eshell-mode-map [down] 'next-line)))
 
