@@ -41,13 +41,18 @@
 (global-hi-lock-mode 1)
 (column-number-mode 1)
 (setq normal-erase-is-backspace 0)
-(ido-mode t)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 
+;; GUI/nw specifics
 (if window-system
   (progn
 	(tool-bar-mode -1)
 	(set-scroll-bar-mode nil)))
+
+;; Ido things: Interactive modes
+(ido-mode t)
+(icomplete-mode T)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Colors for compilation buffer
 (require 'ansi-color)
@@ -91,6 +96,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
+
+(setq require-final-newline 't)
+
+;; Increase undo limit
+(setq undo-limit 100000)
 
 ;; Configure web brower
 (setq browse-url-browser-function (quote browse-url-generic))
