@@ -51,7 +51,7 @@
 
 ;; Ido things: Interactive modes
 (ido-mode t)
-(icomplete-mode T)
+(icomplete-mode t)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Colors for compilation buffer
