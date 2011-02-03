@@ -94,9 +94,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Misceallenous
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'before-save-hook
+  'delete-trailing-whitespace)
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
 
+;; Adds a newline at the end of the file
 (setq require-final-newline 't)
 
 ;; Increase undo limit
