@@ -120,6 +120,8 @@
 (put 'narrow-to-region 'disabled nil) ;; narrow/widen region
 (put 'upcase-region 'disabled nil) ;; upcase region
 
+;; Enter the debugger on error
+(setq debug-on-error t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Amadeus Specifics

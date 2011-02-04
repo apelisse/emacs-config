@@ -11,6 +11,9 @@
 ;; Amadeus TODO Files
 (setq org-agenda-files (quote ("~/TODO_archive" "~/TODO")))
 
+;; Use bash for shell commands (zsh is way too long to run)
+(setq shell-file-name "/bin/bash")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color theme
 ;; TODO: This should be replaced by hard coding coloring
