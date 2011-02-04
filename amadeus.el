@@ -49,3 +49,8 @@
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
 (ac-config-default)
 (define-key ac-mode-map "\M-/" 'auto-complete)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Python
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq ipython-command "/opt/python-2.6-64/bin/ipython")
