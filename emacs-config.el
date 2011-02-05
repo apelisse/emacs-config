@@ -96,6 +96,11 @@
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (require 'ipython)
+;; Python requires indentation to be 4 spaces
+(add-hook 'python-mode-hook
+  '(lambda ()
+     (setq indent-tabs-mode nil)))
+(setq py-indent-offset 4)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Misceallenous
