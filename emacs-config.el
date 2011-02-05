@@ -31,6 +31,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
+;; XXX: This doesn't work
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 (setq tab-width 4)
@@ -43,6 +44,7 @@
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 
 ;; GUI/nw specifics
+;; XXX: This doesn't work
 (if window-system
   (progn
 	(tool-bar-mode -1)
@@ -86,7 +88,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'eshell-mode-hook
     '(lambda ()
-	   (setenv "GIT_PAGER" "")			; Let's not use the default pager in eshell
+	   (setenv "GIT_PAGER" "")		; Let's not use the default pager in eshell
 	   (define-key eshell-mode-map [up] 'previous-line)
 	   (define-key eshell-mode-map [down] 'next-line)))
 
