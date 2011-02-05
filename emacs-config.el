@@ -30,7 +30,6 @@
 ;; Display Configuration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-startup-screen t)
-(setq show-trailing-whitespace t)
 (setq inhibit-splash-screen t)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
