@@ -43,6 +43,13 @@
 (setq normal-erase-is-backspace 0)
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Faces
+;; XXX: Should this belong to a 'theme' ?
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(set-face-attribute 'diff-added nil :foreground "Firebrick")
+(set-face-attribute 'diff-removed nil :foreground "Forest Green")
+
 ;; GUI/nw specifics
 ;; XXX: This doesn't work
 (if window-system
