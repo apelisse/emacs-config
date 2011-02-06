@@ -31,7 +31,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
-;; XXX: This doesn't work
+(display-time-mode 1)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 (setq tab-width 4)
