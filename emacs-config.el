@@ -52,11 +52,10 @@
 (set-face-attribute 'diff-removed nil :foreground "Forest Green")
 
 ;; GUI/nw specifics
-;; XXX: This doesn't work
-(if window-system
-  (progn
-	(tool-bar-mode -1)
-	(set-scroll-bar-mode nil)))
+(when (boundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (boundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 
 ;; Ido things: Interactive modes
 (ido-mode t)
