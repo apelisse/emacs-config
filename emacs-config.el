@@ -59,6 +59,8 @@
 
 ;; Ido things: Interactive modes
 (ido-mode t)
+(setq ido-everywhere t)
+(setq ido-enable-flex-matching t)
 (icomplete-mode t)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
