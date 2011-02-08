@@ -18,6 +18,11 @@
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 
+;; Eshell amadeus specific: Let's run emacsclient in emacs ...
+(add-hook 'eshell-mode-hook
+  '(lambda ()
+	 (setenv "GIT_EDITOR" "emacsclient")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color theme
 ;; TODO: This should be replaced by hard coding coloring
