@@ -138,7 +138,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/contrib/share/gtags/")
 
-(add-hook 'c-mode-hook
+(add-hook 'c-mode-common-hook
   '(lambda ()
 	 (gtags-mode 1)))
 (autoload 'gtags-mode "gtags" "" t)
