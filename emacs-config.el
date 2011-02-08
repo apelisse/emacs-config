@@ -48,8 +48,8 @@
 ;; XXX: Should this belong to a 'theme' ?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'diff-mode)
-(set-face-attribute 'diff-added nil :foreground "Firebrick")
-(set-face-attribute 'diff-removed nil :foreground "Forest Green")
+(set-face-attribute 'diff-added nil :foreground "Forest Green")
+(set-face-attribute 'diff-removed nil :foreground "Firebrick")
 
 ;; GUI/nw specifics
 (when (boundp 'tool-bar-mode)
