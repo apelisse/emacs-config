@@ -14,6 +14,10 @@
 ;; Use bash for shell commands (zsh is way too long to run)
 (setq shell-file-name "/bin/bash")
 
+;; Use w3m as we can't run firefox ...
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color theme
 ;; TODO: This should be replaced by hard coding coloring
