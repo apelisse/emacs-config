@@ -43,6 +43,11 @@
 (setq normal-erase-is-backspace 0)
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 
+;; whitespace
+(require 'whitespace)
+(setq whitespace-style '(lines-tail trailing))
+(global-whitespace-mode t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Faces
 ;; XXX: Should this belong to a 'theme' ?
