@@ -7,3 +7,6 @@
 [submodule "pylookup"]
 	path = pylookup
 	url = http://github.com/tsgates/pylookup.git
+[submodule "egg"]
+	path = egg
+	url = https://github.com/byplayer/egg.git
