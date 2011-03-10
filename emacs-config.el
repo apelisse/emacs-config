@@ -48,6 +48,7 @@
 (require 'whitespace)
 (setq whitespace-style '(lines-tail trailing))
 (global-whitespace-mode t)
+(setq whitespace-line-column 79)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Faces
