@@ -109,7 +109,9 @@
     '(lambda ()
 	   (setenv "GIT_PAGER" "")		; Let's not use the default pager in eshell
 	   (define-key eshell-mode-map [up] 'previous-line)
-	   (define-key eshell-mode-map [down] 'next-line)))
+	   (define-key eshell-mode-map [down] 'next-line)
+	   (define-key eshell-mode-map (kbd "M-r") 'eshell-isearch-backward)
+	   (define-key eshell-mode-map (kbd "M-s") 'eshell-isearch-forward)))
 (setq eshell-history-size 1000)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
