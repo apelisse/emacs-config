@@ -79,6 +79,11 @@
   (ansi-color-apply-on-region (point-min) (point-max))
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+(defun compile-with-buffer-name (name command)
+   (setq compilation-buffer-name-function
+      (lambda (u) name))
+   (compile command)
+   (setq compilation-buffer-name-function nil))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
