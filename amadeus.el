@@ -21,7 +21,7 @@
 ;; Eshell amadeus specific: Let's run emacsclient in emacs ...
 (add-hook 'eshell-mode-hook
   '(lambda ()
-	 (setenv "GIT_EDITOR" "emacsclient")))
+	 (setenv "EDITOR" "emacsclient")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color theme
