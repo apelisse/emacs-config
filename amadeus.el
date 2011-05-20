@@ -51,7 +51,6 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (require 'auto-complete-clang)
-(setenv "LD_PRELOAD" "/opt/gcc-4.3.2/lib64/libstdc++.so.6:/opt/gcc-4.3.2/lib64/libgcc_s.so.1")
 (defun my-ac-cc-mode-setup ()
 ;	(setq ac-sources (append '(ac-source-clang) ac-sources)))
 	(setq ac-sources '(ac-source-clang))
