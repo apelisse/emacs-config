@@ -50,6 +50,9 @@
 (add-hook 'c-mode-common-hook
   '(lambda ()
 	 (whitespace-mode t)))
+(add-hook 'python-mode-hook
+  '(lambda ()
+	 (whitespace-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Faces
