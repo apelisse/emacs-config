@@ -136,6 +136,7 @@
   '(lambda ()
      (setq indent-tabs-mode nil)))
 (setq py-indent-offset 4)
+(setq py-smart-indentation nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; pylookup
