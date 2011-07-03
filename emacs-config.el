@@ -45,7 +45,7 @@
 
 ;; whitespace
 (require 'whitespace)
-(setq whitespace-style '(lines-tail trailing))
+(setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
 (add-hook 'c-mode-common-hook
   '(lambda ()
