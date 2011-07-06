@@ -40,7 +40,6 @@
 (menu-bar-mode -1)
 (global-hi-lock-mode 1)
 (column-number-mode 1)
-(setq normal-erase-is-backspace 0)
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 
 ;; whitespace
