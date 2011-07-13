@@ -70,3 +70,13 @@
 ;; Tramp/Ange-ftp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq ange-ftp-ftp-program-args '("-i" "-n" "-g" "-v" "-A"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Outline mode for logs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("logAPS_\.\*\\.txt\\'" . outline-mode))
+;; Specify outline heading regex, and fold everything
+(add-hook 'outline-mode-hook
+  (lambda ()
+	(set (make-local-variable 'outline-regexp) "[[:space:]]*==>")
+	(hide-sublevels 3)))
