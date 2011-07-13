@@ -117,6 +117,7 @@
 (autoload 'commitlog-mode "commitlog-mode"
   "Major mode for editing commit messages." t)
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . commitlog-mode))
+(add-to-list 'auto-mode-alist '("hg-editor-.*\.txt$" . commitlog-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Eshell
