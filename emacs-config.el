@@ -49,7 +49,7 @@
 
 ;; whitespace
 (require 'whitespace)
-(setq whitespace-style '(lines-tail trailing))
+(setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
 (add-hook 'c-mode-common-hook
   '(lambda ()
@@ -130,6 +130,7 @@
 (add-hook 'eshell-mode-hook
     '(lambda ()
 	   (setenv "GIT_PAGER" "")		; Let's not use the default pager in eshell
+	   (setenv "EDITOR" "emacsclient -i")
 	   (define-key eshell-mode-map [up] 'previous-line)
 	   (define-key eshell-mode-map [down] 'next-line)
 	   (define-key eshell-mode-map (kbd "M-r") 'eshell-isearch-backward)
@@ -149,6 +150,7 @@
   '(lambda ()
      (setq indent-tabs-mode nil)))
 (setq py-indent-offset 4)
+(setq py-smart-indentation nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; pylookup
@@ -195,7 +197,7 @@
 
 ;; Configure web brower
 (setq browse-url-browser-function (quote browse-url-generic))
-(setq browse-url-generic-program "firefox3")
+(setq browse-url-generic-program "firefox")
 
 ;; Allow disabled functions
 (put 'narrow-to-region 'disabled nil) ;; narrow/widen region
