@@ -74,9 +74,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Outline mode for logs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'auto-mode-alist '("logAPS_\.\*\\.txt\\'" . outline-mode))
+(defvar apslog-mode-hook nil)
+
+;; Use specific hook for apslog
+(define-derived-mode apslog-mode outline-mode
+  (setq mode-name "APS Log")
+  (run-hooks 'apslog-mode-hook))
+
+(add-to-list 'auto-mode-alist '("logAPS_\.\*\\.txt\\'" . apslog-mode))
 ;; Specify outline heading regex, and fold everything
-(add-hook 'outline-mode-hook
+(add-hook 'apslog-mode-hook
   (lambda ()
 	(set (make-local-variable 'outline-regexp) "[[:space:]]*==>")
 	(hide-sublevels 3)))
