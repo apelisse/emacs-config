@@ -148,9 +148,9 @@
 ;; Python requires indentation to be 4 spaces
 (add-hook 'python-mode-hook
   '(lambda ()
-     (setq indent-tabs-mode nil)))
-(setq py-indent-offset 4)
-(setq py-smart-indentation nil)
+     (setq indent-tabs-mode nil)
+	 (setq py-indent-offset 4)
+	 (setq py-smart-indentation nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; pylookup
@@ -162,7 +162,6 @@
 
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
 (setq pylookup-db-file (concat pylookup-dir "/pylookup.db"))
-
 
 (autoload 'pylookup-lookup "pylookup"
   "Lookup SEARCH-TERM in the Python HTML indexes." t)
