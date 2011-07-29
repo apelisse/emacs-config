@@ -52,7 +52,8 @@
 (setq whitespace-line-column 79)
 (add-hook 'c-mode-common-hook
   '(lambda ()
-	 (whitespace-mode t)))
+	 (whitespace-mode t)
+	 (c-set-style "bsd")))
 (add-hook 'python-mode-hook
   '(lambda ()
 	 (whitespace-mode t)))
