@@ -29,6 +29,7 @@
 ;; This is obviously mandatory
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/auto-complete/")
+(add-to-list 'load-path "~/.emacs.d/auto-complete-clang/")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -199,8 +200,16 @@
 ;; Auto-Complete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'auto-complete-config)
+(require 'auto-complete-clang)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
+(add-hook 'c-mode-common-hook
+  '(lambda ()
+	 (auto-complete-mode)
+	 (setq ac-expand-on-auto-complete 't)
+	 (setq ac-use-fuzzy 't)
+	 (setq ac-auto-start 0)
+	 (setq ac-quick-help-delay 0)
+	 (define-key ac-mode-map (kbd "M-/") 'ac-complete-clang)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Amadeus Specifics
