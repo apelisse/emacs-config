@@ -24,6 +24,16 @@
 	 (setenv "EDITOR" "emacsclient")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Global tags (gnu gtags)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/contrib/share/gtags/")
+
+(add-hook 'c-mode-common-hook
+  '(lambda ()
+	 (gtags-mode 1)))
+(autoload 'gtags-mode "gtags" "" t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color theme
 ;; TODO: This should be replaced by hard coding coloring
 ;; I don't want to have a dependency over the color-theme code
