@@ -89,7 +89,7 @@
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 (defun compile-with-buffer-name (name command)
    (setq compilation-buffer-name-function
-      (lambda (u) name))
+	 (lambda (mode) name))
    (compile command)
    (setq compilation-buffer-name-function nil))
 
