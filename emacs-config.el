@@ -199,17 +199,35 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Auto-Complete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'auto-complete-config)
+;; General Completion variables
+(require 'auto-complete)
 (require 'auto-complete-clang)
+
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+
+(defun auto-complete-configuration (sources)
+  (auto-complete-mode)
+  (setq ac-expand-on-auto-complete 't)
+  (setq ac-use-fuzzy 't)
+  (setq ac-auto-start nil)
+  (setq ac-quick-help-delay 0)
+  (setq ac-sources sources)
+  (define-key ac-mode-map (kbd "M-/") 'auto-complete))
+
+;; C/C++ Completion
 (add-hook 'c-mode-common-hook
   '(lambda ()
-	 (auto-complete-mode)
-	 (setq ac-expand-on-auto-complete 't)
-	 (setq ac-use-fuzzy 't)
-	 (setq ac-auto-start 0)
-	 (setq ac-quick-help-delay 0)
-	 (define-key ac-mode-map (kbd "M-/") 'ac-complete-clang)))
+	 (auto-complete-configuration '(ac-source-clang-complete))))
+
+;; Lisp Completion
+(add-hook 'emacs-lisp-mode-hook
+  '(lambda ()
+	 (auto-complete-configuration
+	  '(ac-source-functions
+		ac-source-variables
+		ac-source-symbols
+		ac-source-features
+		ac-source-words-in-same-mode-buffers))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Amadeus Specifics
