@@ -3,7 +3,7 @@
 	url = http://cx4a.org/repo/auto-complete.git
 [submodule "auto-complete-clang"]
 	path = auto-complete-clang
-	url = https://github.com/brianjcj/auto-complete-clang.git
+	url = https://github.com/mikeandmore/auto-complete-clang
 [submodule "pylookup"]
 	path = pylookup
 	url = http://git.freepel.fr/pylookup.git
