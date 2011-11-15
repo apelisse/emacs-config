@@ -118,11 +118,6 @@
 (add-to-list 'backup-directory-alist (cons "." "~/.emacs.d/backups/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Emerge
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'emerge-startup-hook '(emerge-skip-prefers 1))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Git
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Try to load our special mode for commit messages
@@ -130,6 +125,17 @@
   "Major mode for editing commit messages." t)
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . commitlog-mode))
 (add-to-list 'auto-mode-alist '("hg-editor-.*\.txt$" . commitlog-mode))
+
+(defun git-mergetool-ediff (local remote base merged)
+  (if (file-readable-p base)
+	  (ediff-merge-files-with-ancestor local remote base nil merged)
+	  (ediff-merge-files local remote nil merged)))
+
+(add-hook 'ediff-mode-hook
+  '(lambda ()
+	 (setq ediff-auto-refine 'on)
+	 (setq ediff-show-clashes-only 't)
+	 (setq ediff-ignore-similar-regions 't)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Eshell
