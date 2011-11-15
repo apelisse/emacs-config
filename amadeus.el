@@ -45,9 +45,6 @@
      (color-theme-initialize)
      (color-theme-tm)))
 
-;; Load compile options
-(load-file "~/.emacs.d/compile-options.el")
-
 (setq get-compile-flags-command "get-compile-flags.py")
 
 (defun get-compile-files-in-dir (dir)
