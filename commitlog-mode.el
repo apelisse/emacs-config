@@ -18,7 +18,7 @@
 
 ;; Let's try to use already existing faces
 (defvar commitlog-keywords
-  '(("#.*\\|HG:.*" . font-lock-comment-face)
+  '(("^\\(#.*\\|HG:\\).*" . font-lock-comment-face)
 	("\\`.\\{49,\\}" . font-lock-warning-face)
 	("\\`.\\{,49\\}" . font-lock-function-name-face)
 	("^.\\{79,\\}" . font-lock-warning-face)))
