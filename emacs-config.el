@@ -187,7 +187,7 @@
 
 ;; Configure web brower
 (setq browse-url-browser-function (quote browse-url-generic))
-(setq browse-url-generic-program "firefox")
+(setq browse-url-generic-program "chrome")
 
 ;; Allow disabled functions
 (put 'narrow-to-region 'disabled nil) ;; narrow/widen region
