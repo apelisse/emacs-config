@@ -47,15 +47,15 @@
 
 (setq get-compile-flags-command "get-compile-flags.py")
 
-(defun get-compile-files-in-dir (dir)
-  (with-output-to-string
-    (with-current-buffer standard-output
-	  (call-process get-compile-flags-command
-					nil
-					t
-					nil
-					(concat (locate-dominating-file dir "Description.xml")
-							"Description.xml")))))
+;; (defun get-compile-files-in-dir (dir)
+;;   (with-output-to-string
+;;     (with-current-buffer standard-output
+;; 	  (call-process get-compile-flags-command
+;; 					nil
+;; 					t
+;; 					nil
+;; 					(concat (locate-dominating-file dir "Description.xml")
+;; 							"Description.xml")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Auto-Complete and Macro expansion
@@ -63,11 +63,12 @@
 (defun my-ac-cc-mode-setup ()
 ;	(setq ac-sources (append '(ac-source-clang) ac-sources)))
   (c-set-style "cc-mode")
-  (setq clang-completion-flags (split-string (get-compile-files-in-dir default-directory)))
-  (setq clang-completion-suppress-error 't)
-  (setq c-macro-preprocessor "g++ -E -C -x c++")
-  (setq c-macro-cppflags (concat compile-flags " -"))
-  (setenv "LD_LIBRARY_PATH" "/softs/oracle/10.2.0.3/lib64/:/nastools/oracle/products/10.2.0.4/lib:/nastools/mysql/products/5-1-39/lib/mysql:/opt/python-2.6-64/lib:/usr/local/lib::/opt/python-2.6-64/lib:/nastools/gqlplus/lib:/nastools/graphviz/lib/graphviz:/remote/users2/apelisse/contrib/lib:/opt/gcc-4.3.2/lib:/opt/gcc-4.3.2/lib64"))
+  ;; (setq clang-completion-flags '(split-string (get-compile-files-in-dir default-directory)))
+  ;; (setq clang-completion-suppress-error 't)
+  ;; (setq c-macro-preprocessor "g++ -E -C -x c++")
+  ;; (setq c-macro-cppflags '(concat (get-compile-files-in-dir default-directory) " -"))
+  ;; (setenv "LD_LIBRARY_PATH" "/softs/oracle/10.2.0.3/lib64/:/nastools/oracle/products/10.2.0.4/lib:/nastools/mysql/products/5-1-39/lib/mysql:/opt/python-2.6-64/lib:/usr/local/lib::/opt/python-2.6-64/lib:/nastools/gqlplus/lib:/nastools/graphviz/lib/graphviz:/remote/users2/apelisse/contrib/lib:/opt/gcc-4.3.2/lib:/opt/gcc-4.3.2/lib64"))
+  )
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
