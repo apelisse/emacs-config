@@ -74,12 +74,14 @@
 (set-face-attribute 'diff-removed nil :foreground "Firebrick")
 
 ;; GUI/nw specifics
+(require 'tool-bar)
 (when (boundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (when (boundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 ;; Ido things: Interactive modes
+(require 'ido)
 (ido-mode t)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
@@ -102,6 +104,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'org)
 (setq org-log-done t)
 (add-hook 'org-mode-hook
     '(lambda ()
