@@ -4,3 +4,4 @@ backups
 tramp
 .org-id-locations
 session.*
+*.elc

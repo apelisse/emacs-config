@@ -45,31 +45,31 @@
      (color-theme-initialize)
      (color-theme-tm)))
 
-;; Load compile options
-(load-file "~/.emacs.d/compile-options.el")
+(setq get-compile-flags-command "get-compile-flags.py")
+
+;; (defun get-compile-files-in-dir (dir)
+;;   (with-output-to-string
+;;     (with-current-buffer standard-output
+;; 	  (call-process get-compile-flags-command
+;; 					nil
+;; 					t
+;; 					nil
+;; 					(concat (locate-dominating-file dir "Description.xml")
+;; 							"Description.xml")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Macro expansion
+;; Auto-Complete and Macro expansion
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This is obviously very specific to c++ ...
-(setq c-macro-preprocessor "g++ -E -C -x c++")
-(setq c-macro-cppflags (concat compile-flags-gcc3 " -"))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Auto-Complete
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(require 'auto-complete-clang)
 (defun my-ac-cc-mode-setup ()
 ;	(setq ac-sources (append '(ac-source-clang) ac-sources)))
-	(setq ac-sources '(ac-source-clang))
-	(setq ac-clang-flags (split-string compile-flags-gcc4))
-	(setq ac-auto-start nil)
-	(setq ac-auto-show-menu nil))
+  (c-set-style "cc-mode")
+  ;; (setq clang-completion-flags '(split-string (get-compile-files-in-dir default-directory)))
+  ;; (setq clang-completion-suppress-error 't)
+  ;; (setq c-macro-preprocessor "g++ -E -C -x c++")
+  ;; (setq c-macro-cppflags '(concat (get-compile-files-in-dir default-directory) " -"))
+  ;; (setenv "LD_LIBRARY_PATH" "/softs/oracle/10.2.0.3/lib64/:/nastools/oracle/products/10.2.0.4/lib:/nastools/mysql/products/5-1-39/lib/mysql:/opt/python-2.6-64/lib:/usr/local/lib::/opt/python-2.6-64/lib:/nastools/gqlplus/lib:/nastools/graphviz/lib/graphviz:/remote/users2/apelisse/contrib/lib:/opt/gcc-4.3.2/lib:/opt/gcc-4.3.2/lib64"))
+  )
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
-(ac-config-default)
-(define-key ac-mode-map "\M-/" 'auto-complete)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python
@@ -91,7 +91,7 @@
   (setq mode-name "APS Log")
   (run-hooks 'apslog-mode-hook))
 
-(add-to-list 'auto-mode-alist '("logAPS_\.\*\\.txt\\'" . apslog-mode))
+(add-to-list 'auto-mode-alist '("logAP._\.\*\\.txt\\'" . apslog-mode))
 ;; Specify outline heading regex, and fold everything
 (add-hook 'apslog-mode-hook
   (lambda ()

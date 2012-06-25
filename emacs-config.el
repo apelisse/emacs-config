@@ -32,6 +32,12 @@
 (add-to-list 'load-path "~/.emacs.d/auto-complete-clang/")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Amadeus Specifics
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (getenv "AMADEUS")
+  (load-file "~/.emacs.d/amadeus.el"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-startup-screen t)
@@ -68,12 +74,14 @@
 (set-face-attribute 'diff-removed nil :foreground "Firebrick")
 
 ;; GUI/nw specifics
+(require 'tool-bar)
 (when (boundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (when (boundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 ;; Ido things: Interactive modes
+(require 'ido)
 (ido-mode t)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
@@ -96,6 +104,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'org)
 (setq org-log-done t)
 (add-hook 'org-mode-hook
     '(lambda ()
@@ -112,11 +121,6 @@
 (add-to-list 'backup-directory-alist (cons "." "~/.emacs.d/backups/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Emerge
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'emerge-startup-hook '(emerge-skip-prefers 1))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Git
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Try to load our special mode for commit messages
@@ -124,6 +128,17 @@
   "Major mode for editing commit messages." t)
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . commitlog-mode))
 (add-to-list 'auto-mode-alist '("hg-editor-.*\.txt$" . commitlog-mode))
+
+(defun git-mergetool-ediff (local remote base merged)
+  (if (file-readable-p base)
+	  (ediff-merge-files-with-ancestor local remote base nil merged)
+	  (ediff-merge-files local remote nil merged)))
+
+(add-hook 'ediff-mode-hook
+  '(lambda ()
+	 (setq ediff-auto-refine 'on)
+	 (setq ediff-show-clashes-only 't)
+	 (setq ediff-ignore-similar-regions 't)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Eshell
@@ -169,6 +184,12 @@
   "Run pylookup-update and create the database at `pylookup-db-file'." t)
 
 (global-set-key "\C-ch" 'pylookup-lookup)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tramp
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'tramp)
+(setq tramp-default-method "ssh")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Misceallenous
@@ -227,9 +248,3 @@
 		ac-source-symbols
 		ac-source-features
 		ac-source-words-in-same-mode-buffers))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Amadeus Specifics
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (getenv "AMADEUS")
-  (load-file "~/.emacs.d/amadeus.el"))
