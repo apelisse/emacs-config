@@ -10,3 +10,6 @@
 [submodule "egg"]
 	path = egg
 	url = https://github.com/byplayer/egg.git
+[submodule "popup"]
+	path = popup
+	url = https://github.com/m2ym/popup-el
