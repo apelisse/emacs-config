@@ -6,7 +6,7 @@
 	url = https://github.com/mikeandmore/auto-complete-clang
 [submodule "pylookup"]
 	path = pylookup
-	url = http://git.freepel.fr/pylookup.git
+	url = https://github.com/tsgates/pylookup
 [submodule "egg"]
 	path = egg
 	url = https://github.com/byplayer/egg.git
