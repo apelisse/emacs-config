@@ -1,6 +1,6 @@
 [submodule "auto-complete"]
 	path = auto-complete
-	url = http://cx4a.org/repo/auto-complete.git
+	url = https://github.com/m2ym/auto-complete
 [submodule "auto-complete-clang"]
 	path = auto-complete-clang
 	url = https://github.com/mikeandmore/auto-complete-clang
