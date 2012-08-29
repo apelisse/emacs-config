@@ -1,6 +1,6 @@
 [submodule "auto-complete"]
 	path = auto-complete
-	url = https://github.com/m2ym/auto-complete
+	url = https://github.com/auto-complete/auto-complete
 [submodule "auto-complete-clang"]
 	path = auto-complete-clang
 	url = https://github.com/mikeandmore/auto-complete-clang
@@ -12,4 +12,4 @@
 	url = https://github.com/byplayer/egg.git
 [submodule "popup"]
 	path = popup
-	url = https://github.com/m2ym/popup-el
+	url = https://github.com/auto-complete/popup-el
