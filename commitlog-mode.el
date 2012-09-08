@@ -4,7 +4,7 @@
 ;; Created:    Jul 2011
 ;; Keywords:   commit log git dcvs hg mercurial
 
-(defconst commitlog-version "0.9.0"
+(defconst commitlog-version "0.9.1"
   "`commitlog-mode' version number.")
 
 ;;; Commentary:
@@ -19,9 +19,9 @@
 ;; Let's try to use already existing faces
 (defvar commitlog-keywords
   '(("^#.*\\|^[[:space:]]*HG:.*" . font-lock-comment-face)
-	("\\`.\\{49,\\}" . font-lock-warning-face)
-	("\\`.\\{,49\\}" . font-lock-function-name-face)
-	("^.\\{79,\\}" . font-lock-warning-face)))
+	("\\`.\\{51,\\}" . font-lock-warning-face)
+	("\\`.\\{,51\\}" . font-lock-function-name-face)
+	("^.\\{73,\\}" . font-lock-warning-face)))
 
 (defvar commit-msg-mode-hook nil)
 
