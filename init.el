@@ -27,16 +27,16 @@
 ;; Load path
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This is obviously mandatory
-(add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/auto-complete/")
-(add-to-list 'load-path "~/.emacs.d/auto-complete-clang/")
-(add-to-list 'load-path "~/.emacs.d/popup/")
+(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path (concat user-emacs-directory "auto-complete/"))
+(add-to-list 'load-path (concat user-emacs-directory "auto-complete-clang/"))
+(add-to-list 'load-path (concat user-emacs-directory "popup/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Amadeus Specifics
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (getenv "AMADEUS")
-  (load-file "~/.emacs.d/amadeus.el"))
+  (load-library "amadeus"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -165,7 +165,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; pylookup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq pylookup-dir "~/.emacs.d/pylookup")
+(setq pylookup-dir (concat user-emacs-directory "pylookup"))
 (add-to-list 'load-path pylookup-dir)
 
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))

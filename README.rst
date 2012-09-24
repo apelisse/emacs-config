@@ -11,8 +11,6 @@ This is my (Antoine Pelisse) emacs configuration.
 Install
 =======
 
-Rename and move the ``dot.emacs.el`` file into ``~/.emacs.el``.
-It will allow emacs to automatically load the configuration.
-
-It does nothing but load all files from git repository (which should
-be named ``~/.emacs.d``).
+This repository should be checked-out as ``~/.emacs.d/``.
+The main script, ``init.el`` will be called automatically when starting
+emacs.
