@@ -55,7 +55,6 @@
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 
 ;; whitespace
-(require 'whitespace)
 (setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
 (add-hook 'c-mode-common-hook
@@ -70,19 +69,18 @@
 ;; Faces
 ;; XXX: Should this belong to a 'theme' ?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'diff-mode)
-(set-face-attribute 'diff-added nil :foreground "Forest Green")
-(set-face-attribute 'diff-removed nil :foreground "Firebrick")
+(eval-after-load "diff-mode"
+  '(progn
+	 (set-face-attribute 'diff-added nil :foreground "Forest Green")
+	 (set-face-attribute 'diff-removed nil :foreground "Firebrick")))
 
 ;; GUI/nw specifics
-(require 'tool-bar)
 (when (boundp 'tool-bar-mode)
   (tool-bar-mode -1))
 (when (boundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
 ;; Ido things: Interactive modes
-(require 'ido)
 (ido-mode t)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
@@ -90,7 +88,6 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Colors for compilation buffer
-(require 'ansi-color)
 (defun colorize-compilation-buffer ()
   (toggle-read-only)
   (ansi-color-apply-on-region (point-min) (point-max))
@@ -105,7 +102,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'org)
 (setq org-log-done t)
 (add-hook 'org-mode-hook
     '(lambda ()
@@ -158,9 +154,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ipython
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'python)
-(require 'ipython)
-(require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 ;; Python requires indentation to be 4 spaces
 (add-hook 'python-mode-hook
@@ -175,8 +168,6 @@
 (setq pylookup-dir "~/.emacs.d/pylookup")
 (add-to-list 'load-path pylookup-dir)
 
-(eval-when-compile (require 'pylookup))
-
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
 (setq pylookup-db-file (concat pylookup-dir "/pylookup.db"))
 
@@ -190,7 +181,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tramp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'tramp)
 (setq tramp-default-method "ssh")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -222,19 +212,19 @@
 ;; Auto-Complete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General Completion variables
-(require 'auto-complete)
-(require 'auto-complete-clang)
-
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(eval-after-load "auto-complete"
+  '(progn
+	 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")))
 
 (defun auto-complete-configuration (sources)
-  (auto-complete-mode)
-  (setq ac-expand-on-auto-complete 't)
-  (setq ac-use-fuzzy 't)
-  (setq ac-auto-start nil)
-  (setq ac-quick-help-delay 0)
-  (setq ac-sources sources)
-  (define-key ac-mode-map (kbd "M-/") 'auto-complete))
+  '(progn
+	 (auto-complete-mode)
+	 (setq ac-expand-on-auto-complete 't)
+	 (setq ac-use-fuzzy 't)
+	 (setq ac-auto-start nil)
+	 (setq ac-quick-help-delay 0)
+	 (setq ac-sources sources)
+	 (define-key ac-mode-map (kbd "M-/") 'auto-complete)))
 
 ;; C/C++ Completion
 (add-hook 'c-mode-common-hook
