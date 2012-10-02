@@ -76,9 +76,9 @@
 
 ;; GUI/nw specifics
 (when (boundp 'tool-bar-mode)
-  (tool-bar-mode -1))
+  '(tool-bar-mode -1))
 (when (boundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
+  '(scroll-bar-mode -1))
 
 ;; Ido things: Interactive modes
 (ido-mode t)
