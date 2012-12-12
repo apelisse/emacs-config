@@ -126,6 +126,12 @@
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . commitlog-mode))
 (add-to-list 'auto-mode-alist '("hg-editor-.*\.txt$" . commitlog-mode))
 
+(add-hook 'commitlog-mode-hook
+  '(lambda ()
+	 (auto-fill-mode t)
+	 (setq current-fill-column 73)
+	 (flyspell-mode t)))
+
 (defun git-mergetool-ediff (local remote base merged)
   (if (file-readable-p base)
 	  (ediff-merge-files-with-ancestor local remote base nil merged)
