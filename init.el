@@ -59,6 +59,7 @@
 (setq whitespace-line-column 79)
 (add-hook 'c-mode-common-hook
   '(lambda ()
+	 (gtags-mode t)
 	 (turn-on-auto-fill)
 	 (whitespace-mode t)
 	 (c-set-style "bsd")))
