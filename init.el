@@ -52,16 +52,19 @@
 (global-hi-lock-mode 1)
 (column-number-mode 1)
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
+(setq-default fill-column 72)
 
 ;; whitespace
 (setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
 (add-hook 'c-mode-common-hook
   '(lambda ()
+	 (turn-on-auto-fill)
 	 (whitespace-mode t)
 	 (c-set-style "bsd")))
 (add-hook 'python-mode-hook
   '(lambda ()
+	 (turn-on-auto-fill)
 	 (whitespace-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -128,8 +131,7 @@
 
 (add-hook 'commitlog-mode-hook
   '(lambda ()
-	 (auto-fill-mode t)
-	 (setq current-fill-column 73)
+	 (turn-on-auto-fill)
 	 (flyspell-mode t)))
 
 (defun git-mergetool-ediff (local remote base merged)
