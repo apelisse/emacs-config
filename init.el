@@ -90,18 +90,6 @@
 (icomplete-mode t)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; Colors for compilation buffer
-(defun colorize-compilation-buffer ()
-  (toggle-read-only)
-  (ansi-color-apply-on-region (point-min) (point-max))
-  (toggle-read-only))
-(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
-(defun compile-with-buffer-name (name command)
-   (setq compilation-buffer-name-function
-	 (lambda (mode) name))
-   (compile command)
-   (setq compilation-buffer-name-function nil))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
