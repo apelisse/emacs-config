@@ -213,14 +213,14 @@
 	 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")))
 
 (defun auto-complete-configuration (sources)
-  '(progn
-	 (auto-complete-mode)
-	 (setq ac-expand-on-auto-complete 't)
-	 (setq ac-use-fuzzy 't)
-	 (setq ac-auto-start nil)
-	 (setq ac-quick-help-delay 0)
-	 (setq ac-sources sources)
-	 (define-key ac-mode-map (kbd "M-/") 'auto-complete)))
+  (when (require 'auto-complete)
+    (auto-complete-mode)
+    (setq ac-expand-on-auto-complete 't)
+    (setq ac-use-fuzzy 't)
+    (setq ac-auto-start nil)
+    (setq ac-quick-help-delay 0)
+    (setq ac-sources sources)
+    (define-key ac-mode-map (kbd "M-/") 'auto-complete)))
 
 ;; C/C++ Completion
 (add-hook 'c-mode-common-hook
