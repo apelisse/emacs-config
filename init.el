@@ -213,7 +213,7 @@
 	 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")))
 
 (defun auto-complete-configuration (sources)
-  (when (require 'auto-complete)
+  (when (require 'auto-complete nil 'noerror)
     (auto-complete-mode)
     (setq ac-expand-on-auto-complete 't)
     (setq ac-use-fuzzy 't)
