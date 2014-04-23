@@ -1,6 +1,6 @@
-;; emacs-config.el -*- mode: emacs-lisp; coding: utf-8-emacs -*-
+;; init.el -*- mode: emacs-lisp; coding: utf-8-emacs -*-
 
-;; Entry config file (`emacs-config.el')
+;; Entry config file (`init.el')
 ;; The is the entry point for emacs configuration.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -9,19 +9,6 @@
 
 ;; Let's start emacs-server, pretty useful when committing files from VCS
 (server-start)
-
-;; ;; I actually don't like either pressing C-x k and not selecting a buffer
-;; (add-hook 'server-switch-hook
-;;   (lambda ()
-;;     (when (current-local-map)
-;;       (use-local-map (copy-keymap (current-local-map))))
-;; 	(when server-buffer-clients
-;; 	  (local-set-key (kbd "C-x k") 'server-edit))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Save the desktop
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;(desktop-save-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load path
@@ -58,7 +45,6 @@
 (setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
 
-;;
 (defconst linux-cpp-style
   '("linux"
     (c-offsets-alist . ((innamespace . [0])))))
