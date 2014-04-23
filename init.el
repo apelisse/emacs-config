@@ -67,6 +67,9 @@
 (add-hook 'sh-mode-hook
   '(lambda ()
          (setq indent-tabs-mode nil)))
+(add-hook 'js-mode-hook
+  '(lambda ()
+    (setq indent-tabs-mode nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Faces
