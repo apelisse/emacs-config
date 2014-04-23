@@ -77,14 +77,10 @@
 	 (set-face-attribute 'diff-added nil :foreground "Forest Green")
 	 (set-face-attribute 'diff-removed nil :foreground "Firebrick")))
 
-;; GUI/nw specifics
-(defun remove-bars-mode (frame)
-  (when (boundp 'tool-bar-mode)
-    (tool-bar-mode -1))
-  (when (boundp 'scroll-bar-mode)
-    (scroll-bar-mode -1)))
-
-(add-hook 'after-make-frame-functions 'remove-bars-mode)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 
 ;; Ido things: Interactive modes
 (ido-mode t)
