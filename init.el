@@ -57,16 +57,30 @@
 ;; whitespace
 (setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
+
+;;
+(defconst linux-cpp-style
+  '("linux"
+    (c-offsets-alist . ((innamespace . [0])))))
+
+(c-add-style "linux-cpp" linux-cpp-style)
+
 (add-hook 'c-mode-common-hook
   '(lambda ()
 	 (gtags-mode t)
 	 (turn-on-auto-fill)
 	 (whitespace-mode t)
-	 (c-set-style "bsd")))
+	 (c-set-style "linux-cpp")))
 (add-hook 'python-mode-hook
   '(lambda ()
 	 (turn-on-auto-fill)
 	 (whitespace-mode t)))
+(add-hook 'nxml-mode-hook
+  '(lambda ()
+         (setq indent-tabs-mode nil)))
+(add-hook 'sh-mode-hook
+  '(lambda ()
+         (setq indent-tabs-mode nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Faces
