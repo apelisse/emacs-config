@@ -17,6 +17,7 @@
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path (concat user-emacs-directory "auto-complete/"))
 (add-to-list 'load-path (concat user-emacs-directory "auto-complete-clang/"))
+(add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "popup/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -239,3 +240,8 @@
 		ac-source-symbols
 		ac-source-features
 		ac-source-words-in-same-mode-buffers))))
+
+;;; mmm-mode
+(when (require 'mmm-auto nil 'noerror)
+  (setq mmm-global-mode 'maybe)
+  (mmm-add-mode-ext-class 'html-mode nil 'html-js))

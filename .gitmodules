@@ -13,3 +13,6 @@
 [submodule "popup"]
 	path = popup
 	url = https://github.com/auto-complete/popup-el
+[submodule "mmm-mode"]
+	path = mmm-mode
+	url = https://github.com/purcell/mmm-mode
