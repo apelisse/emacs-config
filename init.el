@@ -19,6 +19,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "auto-complete-clang/"))
 (add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "popup/"))
+(add-to-list 'load-path (concat user-emacs-directory "fuzzy-el/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Amadeus Specifics
