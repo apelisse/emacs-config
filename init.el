@@ -37,6 +37,10 @@
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 (setq-default fill-column 72)
 
+;; Uniquify
+(when (require 'uniquify nil 'noerror)
+  (setq uniquify-buffer-name-style 'forward))
+
 ;; whitespace
 (setq whitespace-style '(lines-tail trailing face))
 (setq whitespace-line-column 79)
