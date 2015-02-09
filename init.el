@@ -59,7 +59,6 @@
 	 (c-set-style "linux-cpp")))
 (add-hook 'python-mode-hook
   '(lambda ()
-	 (turn-on-auto-fill)
 	 (whitespace-mode t)))
 (add-hook 'nxml-mode-hook
   '(lambda ()
