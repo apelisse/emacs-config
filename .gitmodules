@@ -19,3 +19,6 @@
 [submodule "fuzzy-el"]
 	path = fuzzy-el
 	url = https://github.com/auto-complete/fuzzy-el
+[submodule "gtags-el"]
+	path = gtags-el
+	url = https://github.com/leoliu/gtags-el
