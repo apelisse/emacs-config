@@ -20,6 +20,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "popup/"))
 (add-to-list 'load-path (concat user-emacs-directory "fuzzy-el/"))
+(add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -53,7 +54,8 @@
 
 (add-hook 'c-mode-common-hook
   '(lambda ()
-	 (gtags-mode t)
+         (when (require 'gtags nil 'noerror)
+	   (gtags-mode t))
 	 (turn-on-auto-fill)
 	 (whitespace-mode t)
 	 (c-set-style "linux-cpp")))
