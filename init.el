@@ -232,10 +232,11 @@
     (define-key ac-mode-map (kbd "M-/") 'auto-complete)))
 
 ;; C/C++ Completion
-;; (add-hook 'c-mode-common-hook
-;;   '(lambda ()
-;;      (when (require 'auto-complete-clang)
-;;        (auto-complete-configuration '(ac-source-clang-complete)))))
+(add-hook 'c-mode-common-hook
+  '(lambda ()
+     (if (require 'auto-complete-config nil 'noerror)
+       (auto-complete-configuration '(ac-source-gtags ac-source-words-in-same-mode-buffers))
+       (auto-complete-configuration '(ac-source-words-in-same-mode-buffers)))))
 
 ;; Lisp Completion
 (add-hook 'emacs-lisp-mode-hook
