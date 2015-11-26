@@ -253,9 +253,13 @@
   (setq mmm-global-mode 'maybe)
   (mmm-add-mode-ext-class 'html-mode nil 'html-js))
 
-(load-library "tango.el")
-
 ;;; Lua mode
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
+;; Objective-c mode
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
+
+;; Include tango. Should be at the end.
+(load-library "tango.el")
