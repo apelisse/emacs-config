@@ -8,10 +8,12 @@
 
 (c-add-style "tango-style" tango-style)
 
+(add-hook 'c-mode-common-hook
+  '(lambda ()
+     (setq indent-tabs-mode nil)))
+
 (add-hook 'c++-mode-hook
   '(lambda ()
-     (setq indent-tabs-mode nil)
-     (whitespace-mode 0)
      (c-set-style "tango-style")))
 
 (add-hook 'python-mode-hook

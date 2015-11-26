@@ -59,7 +59,6 @@
          (when (require 'gtags nil 'noerror)
 	   (gtags-mode t))
 	 (turn-on-auto-fill)
-	 (whitespace-mode t)
 	 (c-set-style "linux-cpp")))
 (add-hook 'python-mode-hook
   '(lambda ()
