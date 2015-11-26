@@ -21,6 +21,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "popup/"))
 (add-to-list 'load-path (concat user-emacs-directory "fuzzy-el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
+(add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -251,3 +253,8 @@
   (mmm-add-mode-ext-class 'html-mode nil 'html-js))
 
 (load-library "tango.el")
+
+;;; Lua mode
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
