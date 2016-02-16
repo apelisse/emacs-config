@@ -8,7 +8,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Let's start emacs-server, pretty useful when committing files from VCS
-(server-start)
+(load "server")
+(unless (server-running-p) (server-start))
+
+(setq default-frame-alist '((font . "Inconsolata-14")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load path
