@@ -1,9 +1,6 @@
 [submodule "auto-complete"]
 	path = auto-complete
 	url = https://github.com/auto-complete/auto-complete
-[submodule "auto-complete-clang"]
-	path = auto-complete-clang
-	url = https://github.com/mikeandmore/auto-complete-clang
 [submodule "pylookup"]
 	path = pylookup
 	url = https://github.com/tsgates/pylookup
