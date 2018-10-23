@@ -22,3 +22,6 @@
 [submodule "lua-mode"]
 	path = lua-mode
 	url = https://github.com/immerrr/lua-mode
+[submodule "go-mode.el"]
+	path = go-mode.el
+	url = https://github.com/dominikh/go-mode.el

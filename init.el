@@ -24,7 +24,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "fuzzy-el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
 (add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
-
+(add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
