@@ -23,6 +23,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
 (add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
+(add-to-list 'load-path (concat user-emacs-directory "gocode/emacs/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -219,6 +220,10 @@
 (eval-after-load "auto-complete"
   '(progn
 	 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")))
+
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
 
 (defun auto-complete-configuration (sources)
   (when (require 'auto-complete nil 'noerror)
