@@ -264,3 +264,7 @@
 
 ;; Objective-c mode
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
+
+;; go-mode
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
