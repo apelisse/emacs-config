@@ -261,6 +261,3 @@
 
 ;; Objective-c mode
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
-
-;; Include tango. Should be at the end.
-(load-library "tango.el")
