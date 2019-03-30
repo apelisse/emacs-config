@@ -33,6 +33,7 @@
 (column-number-mode 1)
 (setq confirm-kill-emacs 'yes-or-no-p)	; Confirm quit (avoids mistyping)
 (setq-default fill-column 72)
+(setq-default sentence-end-double-space nil)
 
 ;; Uniquify
 (when (require 'uniquify nil 'noerror)
