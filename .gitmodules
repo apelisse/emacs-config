@@ -28,3 +28,6 @@
 [submodule "gocode"]
 	path = gocode
 	url = https://github.com/nsf/gocode/
+[submodule "markdown-mode"]
+	path = markdown-mode
+	url = https://github.com/jrblevin/markdown-mode.git
