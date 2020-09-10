@@ -25,6 +25,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gocode/emacs/"))
 (add-to-list 'load-path (concat user-emacs-directory "rust-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "yaml-mode/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -281,3 +282,8 @@
 	    (setq rust-format-on-save t)
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
 	    (setq indent-tabs-mode nil)))
+
+;; YAML mode
+(autoload 'yaml-mode "yaml-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
