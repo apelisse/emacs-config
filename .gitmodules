@@ -31,3 +31,6 @@
 [submodule "markdown-mode"]
 	path = markdown-mode
 	url = https://github.com/jrblevin/markdown-mode.git
+[submodule "rust-mode"]
+	path = rust-mode
+	url = https://github.com/rust-lang/rust-mode

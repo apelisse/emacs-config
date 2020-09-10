@@ -24,6 +24,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gocode/emacs/"))
+(add-to-list 'load-path (concat user-emacs-directory "rust-mode/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -272,3 +273,11 @@
 	  '(lambda ()
 	     (add-hook 'before-save-hook
 		       'gofmt-before-save)))
+
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(add-hook 'rust-mode-hook
+          (lambda ()
+	    (setq rust-format-on-save t)
+	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
+	    (setq indent-tabs-mode nil)))
