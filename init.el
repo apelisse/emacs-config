@@ -269,6 +269,7 @@
 
 ;; go-mode
 (autoload 'go-mode "go-mode" nil t)
+(setq gofmt-command "goimports")
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (add-hook 'go-mode-hook
 	  '(lambda ()
