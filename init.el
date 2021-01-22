@@ -16,15 +16,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load path
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "popup/"))
-(add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
-(add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gocode/emacs/"))
+(add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
+(add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "markdown-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "popup/"))
 (add-to-list 'load-path (concat user-emacs-directory "rust-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "yaml-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "markdown-mode/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
