@@ -5,3 +5,5 @@ tramp
 .org-id-locations
 session.*
 *.elc
+elpa/
+ido.last

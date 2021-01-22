@@ -4,24 +4,15 @@
 [submodule "egg"]
 	path = egg
 	url = https://github.com/byplayer/egg.git
-[submodule "popup"]
-	path = popup
-	url = https://github.com/auto-complete/popup-el
 [submodule "mmm-mode"]
 	path = mmm-mode
 	url = https://github.com/purcell/mmm-mode
 [submodule "gtags-el"]
 	path = gtags-el
 	url = https://github.com/leoliu/gtags-el
-[submodule "lua-mode"]
-	path = lua-mode
-	url = https://github.com/immerrr/lua-mode
 [submodule "go-mode.el"]
 	path = go-mode.el
 	url = https://github.com/dominikh/go-mode.el
-[submodule "gocode"]
-	path = gocode
-	url = https://github.com/nsf/gocode/
 [submodule "markdown-mode"]
 	path = markdown-mode
 	url = https://github.com/jrblevin/markdown-mode.git

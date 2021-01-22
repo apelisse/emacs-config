@@ -13,19 +13,10 @@
 
 (setq default-frame-alist '((font . "Inconsolata-14")))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Load path
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (concat user-emacs-directory "company-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
-(add-to-list 'load-path (concat user-emacs-directory "gocode/emacs/"))
-(add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
-(add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "markdown-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "popup/"))
-(add-to-list 'load-path (concat user-emacs-directory "rust-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "yaml-mode/"))
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Configuration
@@ -59,8 +50,6 @@
 
 (add-hook 'c-mode-common-hook
   '(lambda ()
-         (when (require 'gtags nil 'noerror)
-	   (gtags-mode t))
 	 (turn-on-auto-fill)
 	 (c-set-style "linux-cpp")))
 (add-hook 'python-mode-hook
@@ -220,46 +209,50 @@
   (setq mmm-global-mode 'maybe)
   (mmm-add-mode-ext-class 'html-mode nil 'html-js))
 
-;;; Lua mode
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
 ;; Objective-c mode
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 
 ;; go-mode
-(autoload 'go-mode "go-mode" nil t)
 (setq gofmt-command "goimports")
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-(add-hook 'go-mode-hook
-	  '(lambda ()
-	     (add-hook 'before-save-hook
-		       'gofmt-before-save)))
 
-(autoload 'rust-mode "rust-mode" nil t)
+;; Rust mode
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 (add-hook 'rust-mode-hook
           (lambda ()
 	    (setq rust-format-on-save t)
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
+	    (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 	    (setq indent-tabs-mode nil)))
 
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(setq company-tooltip-align-annotations t)
+
 ;; YAML mode
-(autoload 'yaml-mode "yaml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ;; markdown-mode
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist
              '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
-
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; Autocomplete
-(autoload 'global-company-mode "company" "company-mode." t)
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Packages installed
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(racer markdown-mode mmm-mode yaml-mode use-package rust-mode go-mode company)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
