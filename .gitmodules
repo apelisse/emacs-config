@@ -31,3 +31,6 @@
 [submodule "yaml-mode"]
 	path = yaml-mode
 	url = https://github.com/yoshiki/yaml-mode
+[submodule "company-mode"]
+	path = company-mode
+	url = https://github.com/company-mode/company-mode
