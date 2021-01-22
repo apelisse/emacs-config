@@ -1,6 +1,3 @@
-[submodule "auto-complete"]
-	path = auto-complete
-	url = https://github.com/auto-complete/auto-complete
 [submodule "pylookup"]
 	path = pylookup
 	url = https://github.com/tsgates/pylookup
@@ -13,9 +10,6 @@
 [submodule "mmm-mode"]
 	path = mmm-mode
 	url = https://github.com/purcell/mmm-mode
-[submodule "fuzzy-el"]
-	path = fuzzy-el
-	url = https://github.com/auto-complete/fuzzy-el
 [submodule "gtags-el"]
 	path = gtags-el
 	url = https://github.com/leoliu/gtags-el

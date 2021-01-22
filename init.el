@@ -16,10 +16,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load path
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (concat user-emacs-directory "auto-complete/"))
 (add-to-list 'load-path (concat user-emacs-directory "mmm-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "popup/"))
-(add-to-list 'load-path (concat user-emacs-directory "fuzzy-el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
 (add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
@@ -215,45 +213,6 @@
 
 ;; Enter the debugger on error
 ;; (setq debug-on-error t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Auto-Complete
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; General Completion variables
-(eval-after-load "auto-complete"
-  '(progn
-	 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")))
-
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
-
-(defun auto-complete-configuration (sources)
-  (when (require 'auto-complete nil 'noerror)
-    (auto-complete-mode)
-    (setq ac-expand-on-auto-complete 't)
-    (setq ac-use-fuzzy 't)
-    (setq ac-auto-start nil)
-    (setq ac-quick-help-delay 0)
-    (setq ac-sources sources)
-    (define-key ac-mode-map (kbd "M-/") 'auto-complete)))
-
-;; C/C++ Completion
-(add-hook 'c-mode-common-hook
-  '(lambda ()
-     (if (require 'auto-complete-config nil 'noerror)
-       (auto-complete-configuration '(ac-source-gtags ac-source-words-in-same-mode-buffers))
-       (auto-complete-configuration '(ac-source-words-in-same-mode-buffers)))))
-
-;; Lisp Completion
-(add-hook 'emacs-lisp-mode-hook
-  '(lambda ()
-	 (auto-complete-configuration
-	  '(ac-source-functions
-		ac-source-variables
-		ac-source-symbols
-		ac-source-features
-		ac-source-words-in-same-mode-buffers))))
 
 ;;; mmm-mode
 (when (require 'mmm-auto nil 'noerror)
