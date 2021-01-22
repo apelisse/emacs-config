@@ -16,6 +16,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load path
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path (concat user-emacs-directory "company-mode/"))
 (add-to-list 'load-path (concat user-emacs-directory "go-mode.el/"))
 (add-to-list 'load-path (concat user-emacs-directory "gocode/emacs/"))
 (add-to-list 'load-path (concat user-emacs-directory "gtags-el/"))
@@ -258,3 +259,7 @@
 (autoload 'gfm-mode "markdown-mode"
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; Autocomplete
+(autoload 'global-company-mode "company" "company-mode." t)
+(add-hook 'after-init-hook 'global-company-mode)
