@@ -86,6 +86,9 @@
 (icomplete-mode t)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Autocomplete
+(add-hook 'after-init-hook 'global-company-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -214,7 +217,14 @@
 
 ;; go-mode
 (setq gofmt-command "goimports")
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Autocomplete
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'go-mode-hook #'lsp-deferred)
 
 ;; Rust mode
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
@@ -224,11 +234,7 @@
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
 	    (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 	    (setq indent-tabs-mode nil)))
-
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
-(setq company-tooltip-align-annotations t)
+(add-hook 'rust-mode-hook #'lsp-deferred)
 
 ;; YAML mode
 (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
@@ -239,9 +245,6 @@
              '("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\)\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
-;; Autocomplete
-(add-hook 'after-init-hook 'global-company-mode)
-
 ;; Packages installed
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -249,7 +252,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(racer markdown-mode mmm-mode yaml-mode use-package rust-mode go-mode company)))
+   '(flycheck lsp-ui lsp-mode markdown-mode mmm-mode yaml-mode use-package rust-mode go-mode company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
