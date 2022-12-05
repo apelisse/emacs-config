@@ -50,20 +50,20 @@
 (c-add-style "linux-cpp" linux-cpp-style)
 
 (add-hook 'c-mode-common-hook
-  '(lambda ()
+  #'(lambda ()
 	 (turn-on-auto-fill)
 	 (c-set-style "linux-cpp")))
 (add-hook 'python-mode-hook
-  '(lambda ()
+  #'(lambda ()
 	 (whitespace-mode t)))
 (add-hook 'nxml-mode-hook
-  '(lambda ()
+  #'(lambda ()
          (setq indent-tabs-mode nil)))
 (add-hook 'sh-mode-hook
-  '(lambda ()
+  #'(lambda ()
          (setq indent-tabs-mode nil)))
 (add-hook 'js-mode-hook
-  '(lambda ()
+  #'(lambda ()
     (setq indent-tabs-mode nil)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -95,7 +95,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq org-log-done t)
 (add-hook 'org-mode-hook
-    '(lambda ()
+    #'(lambda ()
 	   (define-key org-mode-map (kbd "C-c l") 'org-store-link)
 	   (define-key org-mode-map (kbd "C-c a") 'org-agenda)
 	   (define-key org-mode-map (kbd "C-c b") 'org-iswitchb)))
@@ -119,7 +119,7 @@
 (add-to-list 'auto-mode-alist '("hg-editor-.*\.txt$" . commitlog-mode))
 
 (add-hook 'commitlog-mode-hook
-  '(lambda ()
+  #'(lambda ()
 	 (turn-on-auto-fill)
 	 (flyspell-mode t)))
 
@@ -129,7 +129,7 @@
 	  (ediff-merge-files local remote nil merged)))
 
 (add-hook 'ediff-mode-hook
-  '(lambda ()
+  #'(lambda ()
 	 (setq ediff-auto-refine 'on)
 	 (setq ediff-show-clashes-only 't)
 	 (setq ediff-ignore-similar-regions 't)))
@@ -138,7 +138,7 @@
 ;; Eshell
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'eshell-mode-hook
-    '(lambda ()
+    #'(lambda ()
 	   (setenv "GIT_PAGER" "")		; Let's not use the default pager in eshell
 	   (setenv "EDITOR" "emacsclient -c")
 	   (define-key eshell-mode-map [up] 'previous-line)
@@ -157,7 +157,7 @@
 
 ;; Python requires indentation to be 4 spaces
 (add-hook 'python-mode-hook
-  '(lambda ()
+  #'(lambda ()
      (setq indent-tabs-mode nil)
 	 (setq py-indent-offset 4)
 	 (setq py-smart-indentation nil)))
@@ -230,7 +230,7 @@
 ;; Rust mode
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 (add-hook 'rust-mode-hook
-          (lambda ()
+          #'(lambda ()
 	    (setq rust-format-on-save t)
 	    (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
 	    (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
